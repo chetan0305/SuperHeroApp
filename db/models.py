@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Team(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True)
     description = models.TextField()
 
     def __str__(self):
@@ -12,7 +12,7 @@ class Team(models.Model):
 
 
 class Publisher(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True)
     description = models.TextField()
 
     def __str__(self):
@@ -20,7 +20,7 @@ class Publisher(models.Model):
 
 
 class SuperHero(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True)
     biography = models.TextField()
     publisher = models.ManyToManyField(Publisher)
     alter_ego = models.CharField(max_length=30)
